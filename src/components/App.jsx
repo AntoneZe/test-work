@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "bootstrap/dist/css/bootstrap.css";
 
-import Welcome from "./test/Welcome";
+import Table from "./global/table/Table";
 import { addPhone } from "../reducers/phoneReducers.js";
 
 const App = () => {
@@ -15,7 +16,13 @@ const App = () => {
   return (
     <div>
       <h1>{phone}</h1>
-      <Welcome name="sadas" />
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <Table />
+          </div>
+        </div>
+      </div>
       <button
         onClick={() => {
           onTestButtonClick();
