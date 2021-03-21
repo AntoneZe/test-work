@@ -14,22 +14,29 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>{phone}</h1>
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <Table />
-          </div>
+    <div className="container">
+      <div className="row">
+        <div className="col-12">
+          <h1>Телефонный справочник</h1>
         </div>
       </div>
-      <button
+      <div className="row">
+        <div className="col-12">
+          <input type="search" name="" id="" />
+          <button>Найти</button>
+
+          <button>Добавить</button>
+          <Table />
+        </div>
+        <div className="col-12 mt-3"> Пагинация: стр.1 из 12</div>
+      </div>
+      {/* <button
         onClick={() => {
           onTestButtonClick();
         }}
       >
         ADD TEST PHONE
-      </button>
+      </button> */}
     </div>
   );
 };

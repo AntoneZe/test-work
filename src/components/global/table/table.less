@@ -1,0 +1,40 @@
+@import "../../../style/variables.less";
+
+.custom-table {
+  width: 100%;
+  @media only screen and (max-width: 767px) {
+    min-width: 600px;
+  }
+  &__wrapper {
+    width: 100%;
+    border: 1px solid @gray-light;
+    border-radius: @base-border-radius;
+    display: inline-flex;
+    padding: 10px;
+    @media only screen and (max-width: 767px) {
+      overflow-x: scroll;
+      padding: 0;
+    }
+  }
+  & thead {
+    border-bottom: 1px solid @gray-light;
+  }
+  & tbody {
+    & tr:nth-child(odd) {
+      background-color: white;
+    }
+    & tr:nth-child(even) {
+      background-color: @gray-light;
+    }
+    & tr {
+      & td:last-child {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  & td,
+  th {
+    padding: 10px;
+  }
+}

@@ -1,25 +1,68 @@
 import React from "react";
 
+import "./table.less";
+
 const Table = () => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Header 1</th>
-          <th>Header 2</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1.1</td>
-          <td>1.2</td>
-        </tr>
-        <tr>
-          <td>2.1</td>
-          <td>2.2</td>
-        </tr>
-      </tbody>
-    </table>
+    <div className="custom-table__wrapper">
+      <table className="custom-table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Имя</th>
+            <th>Номер телефона</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Leanne Graham</td>
+            <td>1-770-736-8031</td>
+            <td>
+              <button>s</button>
+              <button>-</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Ervin Howell</td>
+            <td>010-692-6593</td>
+            <td>
+              <button>s</button>
+              <button>-</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Clementine Bauch</td>
+            <td>1-463-123-4447</td>
+            <td>
+              <button>s</button>
+              <button>-</button>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Patricia Lebsack</td>
+            <td>493-170-9623</td>
+            <td>
+              <button>s</button>
+              <button>-</button>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Chelsey Dietrich</td>
+            <td>(254)954-1289</td>
+            <td>
+              <button>s</button>
+              <button>-</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 };
 
