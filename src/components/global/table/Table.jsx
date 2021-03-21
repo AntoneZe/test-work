@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import "./table.less";
+import Button from '../button/Button';
+
+import './table.less';
 
 const Table = () => {
   return (
-    <div className="custom-table__wrapper">
-      <table className="custom-table">
+    <div className='custom-table__wrapper'>
+      <table className='custom-table'>
         <thead>
           <tr>
             <th>id</th>
@@ -20,8 +22,7 @@ const Table = () => {
             <td>Leanne Graham</td>
             <td>1-770-736-8031</td>
             <td>
-              <button>s</button>
-              <button>-</button>
+              <Button>-</Button>
             </td>
           </tr>
           <tr>
@@ -29,8 +30,7 @@ const Table = () => {
             <td>Ervin Howell</td>
             <td>010-692-6593</td>
             <td>
-              <button>s</button>
-              <button>-</button>
+              <Button>-</Button>
             </td>
           </tr>
           <tr>
@@ -38,8 +38,7 @@ const Table = () => {
             <td>Clementine Bauch</td>
             <td>1-463-123-4447</td>
             <td>
-              <button>s</button>
-              <button>-</button>
+              <Button>-</Button>
             </td>
           </tr>
           <tr>
@@ -47,8 +46,7 @@ const Table = () => {
             <td>Patricia Lebsack</td>
             <td>493-170-9623</td>
             <td>
-              <button>s</button>
-              <button>-</button>
+              <Button>-</Button>
             </td>
           </tr>
           <tr>
@@ -56,8 +54,7 @@ const Table = () => {
             <td>Chelsey Dietrich</td>
             <td>(254)954-1289</td>
             <td>
-              <button>s</button>
-              <button>-</button>
+              <Button>-</Button>
             </td>
           </tr>
         </tbody>

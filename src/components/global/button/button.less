@@ -1,0 +1,23 @@
+@import '../../../style/variables.less';
+
+.custom-button {
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.125rem 0.75rem;
+  font-size: @desktop-font-size-normal;
+  line-height: 1.5;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  background-color: @base-color;
+  color: white;
+  text-transform: uppercase;
+  &:focus {
+    background-color: @base-color-focus;
+    outline: none;
+  }
+  &:active {
+    background-color: @base-color-active;
+  }
+}

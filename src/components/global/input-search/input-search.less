@@ -1,0 +1,58 @@
+@import '../../../style/variables.less';
+
+.custom-input-search {
+  display: inline-flex;
+  & form {
+    & > div {
+      display: flex;
+    }
+  }
+  &__form-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+  }
+  & input,
+  & button {
+    border: 0;
+  }
+  & button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: @base-border-radius;
+    border-bottom-right-radius: @base-border-radius;
+    background-color: @base-color;
+    transform: translateX(-5px);
+    &:focus {
+      background-color: @base-color-focus;
+      outline: none;
+    }
+    &:active {
+      background-color: @base-color-active;
+    }
+    & img {
+      width: 60%;
+      height: 60%;
+    }
+  }
+  & input {
+    border: 2px solid @base-color;
+    border-radius: @base-border-radius;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: @desktop-font-size-normal;
+    padding: 0 5px;
+    &:focus {
+      outline: none;
+      border: 2px solid @base-color-focus;
+    }
+  }
+}
+
+.custom-input-search,
+.custom-input-search > form,
+.custom-input-search__form-wrapper > input,
+.custom-input-search__form-wrapper {
+  width: 100%;
+}
