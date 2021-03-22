@@ -1,8 +1,10 @@
 const ADD_PHONE = "ADD_PHONE";
+const DELETE_PHONE = "DELETE_PHONE";
 
 const defaultState = {
-  phone: [],
+  phoneList: [],
   isFetching: true,
+  startId: 0,
 };
 
 export default function phone(state = defaultState, action) {
@@ -10,11 +12,31 @@ export default function phone(state = defaultState, action) {
     case ADD_PHONE:
       return {
         ...state,
-        phone: action.payload,
+        startId: state.startId + 1,
+        phoneList: [
+          ...state.phoneList,
+          { id: state.startId, ...action.payload },
+        ],
+      };
+    case DELETE_PHONE:
+      const filteredPhoneList = state.phoneList.filter(
+        (el) => el.id !== action.payload.id
+      );
+      return {
+        ...state,
+        phoneList: filteredPhoneList,
       };
     default:
       return state;
   }
 }
 
-export const addPhone = (phone) => ({ type: ADD_PHONE, payload: phone });
+export const addPhone = (phoneList) => ({
+  type: ADD_PHONE,
+  payload: phoneList,
+});
+
+export const deletePhone = (id) => ({
+  type: DELETE_PHONE,
+  payload: id,
+});

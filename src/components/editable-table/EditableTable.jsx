@@ -11,8 +11,7 @@ import Modal from "../global/modal/Modal";
 
 const EditableTable = ({ titleList, rows, deleteCallback }) => {
   const [modalActive, setModalActive] = useState(false);
-  console.log("titleList", titleList);
-  console.log("rows", rows);
+
   return (
     <>
       <div className="editable-table">

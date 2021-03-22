@@ -31,9 +31,14 @@ const Table = ({ titleList, rows, deleteCallback }) => {
   } else {
     tbody = (
       <tbody className="custom-table__dummy">
-        <td colspan={4} align="center">
-          Нет записей...
-        </td>
+        <tr>
+          <td colSpan={1} align="center"></td>
+          <td colSpan={4} align="center">
+            Нет записей...
+          </td>
+          <td colSpan={1} align="center"></td>
+          <td colSpan={1} align="center"></td>
+        </tr>
       </tbody>
     );
   }

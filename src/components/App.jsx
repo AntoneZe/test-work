@@ -2,17 +2,21 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
 
-import { addPhone } from "../reducers/phoneReducers.js";
+import { addPhone, deletePhone } from "../reducers/phoneReducers.js";
 
 import EditableTable from "./editable-table/EditableTable";
 import PhoneEntryForm from "./phone-entry-form/PhoneEntryForm.jsx";
 
 const App = () => {
   const dispatch = useDispatch();
-  const phone = useSelector((state) => state.phone.phone);
+  const phone = useSelector((state) => state.phone.phoneList);
 
   const onTestButtonClick = () => {
-    dispatch(addPhone("8-800-555-3535"));
+    dispatch(addPhone({ name: "Leanne Graham", phone: "1-770-736-8031" }));
+    dispatch(addPhone({ name: "Ervin Howell", phone: "010-692-6593" }));
+    dispatch(addPhone({ name: "Clementine Bauch", phone: "1-463-123-4447" }));
+    dispatch(addPhone({ name: "Patricia Lebsack", phone: "493-170-9623" }));
+    dispatch(addPhone({ name: "Chelsey Dietrich", phone: "(254)954-1289" }));
   };
 
   const dummyData = [
@@ -34,21 +38,20 @@ const App = () => {
         <div className="col-12">
           <EditableTable
             titleList={["id", "Имя", "Номер телефона"]}
-            rows={[]}
-            // rows={dummyData}
+            rows={phone}
             deleteCallback={(id) => {
-              console.log(id);
+              dispatch(deletePhone({ id }));
             }}
           />
         </div>
       </div>
-      {/* <button
+      <button
         onClick={() => {
           onTestButtonClick();
         }}
       >
         ADD TEST PHONE
-      </button> */}
+      </button>
     </div>
   );
 };
