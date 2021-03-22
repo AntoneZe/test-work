@@ -1,0 +1,33 @@
+@import "../../style/variables.less";
+
+.custom-fieldset {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  border: 1px solid @base-color-light;
+  border-radius: @base-border-radius;
+  padding: 15px;
+  margin-bottom: 15px;
+  & legend {
+    background: none;
+    width: auto;
+  }
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 10px;
+    &--button {
+      width: auto;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(-15px, 27px);
+      padding: 5px;
+      background: white;
+    }
+    & label {
+      width: 100%;
+    }
+  }
+}

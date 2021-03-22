@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { addPhone } from "../reducers/phoneReducers.js";
 
 import EditableTable from "./editable-table/EditableTable";
-import Modal from "./global/modal/Modal.jsx";
+import PhoneEntryForm from "./phone-entry-form/PhoneEntryForm.jsx";
 
 const App = () => {
   const dispatch = useDispatch();

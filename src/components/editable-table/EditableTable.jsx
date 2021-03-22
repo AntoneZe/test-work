@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./editable-table.less";
 
+import PhoneEntryForm from "../phone-entry-form/PhoneEntryForm";
 import Table from "../global/table/Table";
 import InputSearch from "../global/input-search/InputSearch";
 import Button from "../global/button/Button";
@@ -22,7 +23,7 @@ const EditableTable = () => {
         <Table />
       </div>
       <Modal active={modalActive} setActive={setModalActive}>
-        <div className="di">21321</div>
+        <PhoneEntryForm />
       </Modal>
     </>
   );
