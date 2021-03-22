@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import Button from "../global/button/Button";
 import Input from "../global/input/Input";
 
 import "./phone-entry-form.less";
+
+const MAX_PHONE_LENGTH = 18;
 
 const useSubmit = (callback) => {
   const [nameError, setNameError] = useState("");
@@ -114,6 +116,7 @@ const PhoneEntryForm = ({ submit, data }) => {
             handler={setPhone}
             type={"text"}
             id={"phone"}
+            lengthRule={MAX_PHONE_LENGTH}
             errorMessage={!!phoneError ? phoneError : null}
           />
         </div>
