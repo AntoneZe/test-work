@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import "./input-search.less";
+import './input-search.less';
 
 const useSearch = (callback) => {
   const searchCallback = (e, value) => {
@@ -13,25 +13,30 @@ const useSearch = (callback) => {
 };
 
 const InputSearch = ({ callback }) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [searchCallback] = useSearch(callback);
 
   return (
-    <div className="custom-input-search">
+    <div className='custom-input-search'>
       <form>
         <div>
-          <div className="custom-input-search__form-wrapper">
+          <div className='custom-input-search__form-wrapper'>
             <input
-              type="search"
-              id="mySearch"
-              name="q"
+              type='search'
+              id='mySearch'
+              name='q'
               value={value}
-              onChange={(e) => setValue(e.target.value)}
-              placeholder="Search the site..."
+              onChange={(e) => {
+                if (!e.target.value.length) {
+                  searchCallback(e, '');
+                }
+                setValue(e.target.value);
+              }}
+              placeholder='Введите Имя...'
             />
           </div>
           <button onClick={(e) => searchCallback(e, value)}>
-            <img src="public/img/icons-search.svg" alt="альтернативный текст" />
+            <img src='public/img/icons-search.svg' alt='альтернативный текст' />
           </button>
         </div>
       </form>

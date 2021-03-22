@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-import "./editable-table.less";
+import './editable-table.less';
 
-import PhoneEntryForm from "../phone-entry-form/PhoneEntryForm";
-import Table from "../global/table/Table";
-import InputSearch from "../global/input-search/InputSearch";
-import Button from "../global/button/Button";
-import Modal from "../global/modal/Modal";
+import PhoneEntryForm from '../phone-entry-form/PhoneEntryForm';
+import Table from '../global/table/Table';
+import InputSearch from '../global/input-search/InputSearch';
+import Button from '../global/button/Button';
+import Modal from '../global/modal/Modal';
 
 const EditableTable = ({ titleList, rows, deleteCallback, addCallback }) => {
   const [modalActive, setModalActive] = useState(false);
-  const [searchString, setSearchString] = useState("");
+  const [searchString, setSearchString] = useState('');
   const [tableRows, setTableRows] = useState(rows);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const EditableTable = ({ titleList, rows, deleteCallback, addCallback }) => {
       setTableRows(rows);
     } else {
       const searchForNameEntityList = rows.filter((el) => {
-        return el.name.toLowerCase().indexOf(searchString) > -1;
+        return el.name.toLowerCase().indexOf(searchString.toLowerCase()) > -1;
       });
       setTableRows(searchForNameEntityList);
     }
@@ -27,9 +27,9 @@ const EditableTable = ({ titleList, rows, deleteCallback, addCallback }) => {
 
   return (
     <>
-      <div className="editable-table">
-        <div className="editable-table__wrapper">
-          <div className="editable-table__input-wrapper">
+      <div className='editable-table'>
+        <div className='editable-table__wrapper'>
+          <div className='editable-table__input-wrapper'>
             <InputSearch
               callback={(value) => {
                 setSearchString(value);

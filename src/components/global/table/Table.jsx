@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Button from "../button/Button";
+import Button from '../button/Button';
 
-import "./table.less";
+import './table.less';
 
 const Table = ({ titleList, rows, deleteCallback }) => {
   const titleListEl = titleList.map((title) => (
@@ -17,7 +17,12 @@ const Table = ({ titleList, rows, deleteCallback }) => {
         <td>{el.phone}</td>
         <td>
           <Button onClick={() => deleteCallback(el.id)}>
-            <img src="public/img/delete.svg" alt="delete" />
+            <img
+              width='15'
+              height='15'
+              src='public/img/delete.svg'
+              alt='delete'
+            />
           </Button>
         </td>
       </tr>
@@ -30,22 +35,22 @@ const Table = ({ titleList, rows, deleteCallback }) => {
     tbody = <tbody>{rowsList}</tbody>;
   } else {
     tbody = (
-      <tbody className="custom-table__dummy">
+      <tbody className='custom-table__dummy'>
         <tr>
-          <td colSpan={1} align="center"></td>
-          <td colSpan={4} align="center">
+          <td colSpan={1} align='center'></td>
+          <td colSpan={4} align='center'>
             Нет записей...
           </td>
-          <td colSpan={1} align="center"></td>
-          <td colSpan={1} align="center"></td>
+          <td colSpan={1} align='center'></td>
+          <td colSpan={1} align='center'></td>
         </tr>
       </tbody>
     );
   }
 
   return (
-    <div className="custom-table__wrapper">
-      <table className="custom-table">
+    <div className='custom-table__wrapper'>
+      <table className='custom-table'>
         <thead>
           <tr>
             {titleListEl}
