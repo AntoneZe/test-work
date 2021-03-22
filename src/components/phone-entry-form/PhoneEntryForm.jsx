@@ -7,6 +7,7 @@ import Input from "../global/input/Input";
 import "./phone-entry-form.less";
 
 const MAX_PHONE_LENGTH = 18;
+const MAX_NAME_LENGTH = 100;
 
 const useSubmit = (callback) => {
   const [nameError, setNameError] = useState("");
@@ -18,7 +19,6 @@ const useSubmit = (callback) => {
       if (regExp.test(value.trim())) {
         if (data.length && value.length > 0) {
           const eqCheck = data.filter((el) => el.name === value);
-          console.log("eqCheck", eqCheck);
           if (eqCheck.length) {
             setNameError("Запись с указанными именем уже внесена в список");
             return "Запись с указанными именем уже внесена в список";
@@ -69,7 +69,13 @@ const useSubmit = (callback) => {
     return [testName(name, data), testPhone(phone, data)];
   };
 
-  const submitHandler = (name, phone, data, resetFieldsCallback) => {
+  const submitHandler = (
+    name,
+    phone,
+    data,
+    resetFieldsCallback,
+    modalState
+  ) => {
     const errorList = validateHandler(name, phone, data).reduce(
       (acc, el) => (el.length ? [...acc, el] : acc),
       []
@@ -80,12 +86,13 @@ const useSubmit = (callback) => {
     callback(name, phone);
     resetFieldsCallback[0]("");
     resetFieldsCallback[1]("");
+    modalState(false);
   };
 
   return [submitHandler, nameError, phoneError];
 };
 
-const PhoneEntryForm = ({ submit, data }) => {
+const PhoneEntryForm = ({ submit, data, afterSubmit }) => {
   const [submitHandler, nameError, phoneError] = useSubmit(submit);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -94,7 +101,7 @@ const PhoneEntryForm = ({ submit, data }) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        submitHandler(name, phone, data, [setName, setPhone]);
+        submitHandler(name, phone, data, [setName, setPhone], afterSubmit);
       }}
     >
       <fieldset className="custom-fieldset">
@@ -106,6 +113,7 @@ const PhoneEntryForm = ({ submit, data }) => {
             handler={setName}
             type={"text"}
             id={"name"}
+            lengthRule={MAX_NAME_LENGTH}
             errorMessage={!!nameError ? nameError : null}
           />
         </div>
@@ -130,6 +138,7 @@ const PhoneEntryForm = ({ submit, data }) => {
 
 PhoneEntryForm.propTypes = {
   submit: PropTypes.func.isRequired,
+  afterSubmit: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

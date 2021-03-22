@@ -14,10 +14,16 @@ const App = () => {
   const addDummyData = () => {
     if (!phone.length) {
       dispatch(addPhone({ name: "Leanne Graham", phone: "+7 (912)-24-28-99" }));
-      dispatch(addPhone({ name: "Ervin Howell", phone: "010-692-6593" }));
-      dispatch(addPhone({ name: "Clementine Bauch", phone: "1-463-123-4447" }));
-      dispatch(addPhone({ name: "Patricia Lebsack", phone: "493-170-9623" }));
-      dispatch(addPhone({ name: "Chelsey Dietrich", phone: "(254)954-1289" }));
+      dispatch(addPhone({ name: "Ervin Howell", phone: "+7 (912)-24-28-98" }));
+      dispatch(
+        addPhone({ name: "Clementine Bauch", phone: "+7 (912)-24-28-97" })
+      );
+      dispatch(
+        addPhone({ name: "Patricia Lebsack", phone: "+7 (912)-24-28-96" })
+      );
+      dispatch(
+        addPhone({ name: "Chelsey Dietrich", phone: "+7 (912)-24-28-95" })
+      );
     }
   };
 
