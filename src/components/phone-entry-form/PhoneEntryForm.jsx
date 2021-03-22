@@ -19,7 +19,7 @@ const PhoneEntryForm = () => {
           <Input type={"text"} id={"phone"} />
         </div>
         <div className="custom-fieldset__wrapper custom-fieldset__wrapper--button">
-          <Button />
+          <Button onClick={() => {}}> Добавить </Button>
         </div>
       </fieldset>
     </form>

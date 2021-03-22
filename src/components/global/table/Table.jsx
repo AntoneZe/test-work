@@ -22,7 +22,9 @@ const Table = () => {
             <td>Leanne Graham</td>
             <td>1-770-736-8031</td>
             <td>
-              <Button>-</Button>
+              <Button onClick={() => {}}>
+                <img src="public/img/delete.svg" alt="delete" />
+              </Button>
             </td>
           </tr>
           <tr>
@@ -30,7 +32,9 @@ const Table = () => {
             <td>Ervin Howell</td>
             <td>010-692-6593</td>
             <td>
-              <Button>-</Button>
+              <Button onClick={() => {}}>
+                <img src="public/img/delete.svg" alt="delete" />
+              </Button>
             </td>
           </tr>
           <tr>
@@ -38,7 +42,9 @@ const Table = () => {
             <td>Clementine Bauch</td>
             <td>1-463-123-4447</td>
             <td>
-              <Button>-</Button>
+              <Button onClick={() => {}}>
+                <img src="public/img/delete.svg" alt="delete" />
+              </Button>
             </td>
           </tr>
           <tr>
@@ -46,7 +52,9 @@ const Table = () => {
             <td>Patricia Lebsack</td>
             <td>493-170-9623</td>
             <td>
-              <Button>-</Button>
+              <Button onClick={() => {}}>
+                <img src="public/img/delete.svg" alt="delete" />
+              </Button>
             </td>
           </tr>
           <tr>
@@ -54,7 +62,9 @@ const Table = () => {
             <td>Chelsey Dietrich</td>
             <td>(254)954-1289</td>
             <td>
-              <Button>-</Button>
+              <Button onClick={() => {}}>
+                <img src="public/img/delete.svg" alt="delete" />
+              </Button>
             </td>
           </tr>
         </tbody>

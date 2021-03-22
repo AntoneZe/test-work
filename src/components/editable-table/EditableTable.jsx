@@ -16,7 +16,7 @@ const EditableTable = () => {
       <div className="editable-table">
         <div className="editable-table__wrapper">
           <div className="editable-table__input-wrapper">
-            <InputSearch />
+            <InputSearch callback={() => {}} />
           </div>
           <Button onClick={() => setModalActive(true)}>Добавить</Button>
         </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./modal.less";
 
 const Modal = ({ active, setActive, children }) => {
@@ -27,6 +29,11 @@ const Modal = ({ active, setActive, children }) => {
       </div>
     </>
   );
+};
+
+Modal.propTypes = {
+  active: PropTypes.bool.isRequired,
+  setActive: PropTypes.func.isRequired,
 };
 
 export default Modal;

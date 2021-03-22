@@ -1,4 +1,4 @@
-@import '../../../style/variables.less';
+@import "../../../style/variables.less";
 
 .custom-button {
   border: none;
@@ -13,6 +13,10 @@
   background-color: @base-color;
   color: white;
   text-transform: uppercase;
+  & img {
+    max-width: 15px;
+    max-height: 15px;
+  }
   &:focus {
     background-color: @base-color-focus;
     outline: none;

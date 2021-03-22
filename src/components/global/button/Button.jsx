@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./button.less";
 
-const Button = ({ onClick }) => {
+const Button = ({ onClick, children }) => {
   return (
     <button
       onClick={() => {
@@ -9,9 +11,13 @@ const Button = ({ onClick }) => {
       }}
       className="custom-button"
     >
-      Добавить
+      {children}
     </button>
   );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Button;
