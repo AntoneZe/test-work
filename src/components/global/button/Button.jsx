@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 
 import "./button.less";
 
-const Button = ({ onClick, children }) => {
+const Button = ({ onClick, type, children }) => {
   return (
     <button
+      type={type}
       onClick={() => {
-        onClick();
+        onClick ? onClick() : null;
       }}
       className="custom-button"
     >
@@ -17,7 +18,8 @@ const Button = ({ onClick, children }) => {
 };
 
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+  type: PropTypes.string,
 };
 
 export default Button;

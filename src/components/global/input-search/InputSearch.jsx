@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./input-search.less";
 
 const useSearch = (callback) => {
-  const searchCallback = (e) => {
+  const searchCallback = (e, value) => {
     e.preventDefault();
-    callback();
+    callback(value);
   };
 
   return [searchCallback];
 };
 
 const InputSearch = ({ callback }) => {
+  const [value, setValue] = useState("");
   const [searchCallback] = useSearch(callback);
 
   return (
@@ -24,10 +25,12 @@ const InputSearch = ({ callback }) => {
               type="search"
               id="mySearch"
               name="q"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
               placeholder="Search the site..."
             />
           </div>
-          <button onClick={(e) => searchCallback(e)}>
+          <button onClick={(e) => searchCallback(e, value)}>
             <img src="public/img/icons-search.svg" alt="альтернативный текст" />
           </button>
         </div>

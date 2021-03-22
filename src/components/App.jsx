@@ -42,6 +42,9 @@ const App = () => {
             deleteCallback={(id) => {
               dispatch(deletePhone({ id }));
             }}
+            addCallback={() => {
+              console.log(123);
+            }}
           />
         </div>
       </div>
