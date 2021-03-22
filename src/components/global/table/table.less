@@ -1,4 +1,4 @@
-@import '../../../style/variables.less';
+@import "../../../style/variables.less";
 
 .custom-table {
   width: 100%;
@@ -27,6 +27,9 @@
       background-color: @base-color-light;
     }
     & tr {
+      & td:first-child {
+        font-weight: 600;
+      }
       & td:last-child {
         display: flex;
         justify-content: center;

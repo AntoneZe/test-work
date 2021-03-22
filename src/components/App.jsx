@@ -15,6 +15,14 @@ const App = () => {
     dispatch(addPhone("8-800-555-3535"));
   };
 
+  const dummyData = [
+    { id: 1, name: "Leanne Graham", phone: "1-770-736-8031" },
+    { id: 2, name: "Ervin Howell", phone: "010-692-6593" },
+    { id: 3, name: "Clementine Bauch", phone: "1-463-123-4447" },
+    { id: 4, name: "Patricia Lebsack", phone: "493-170-9623" },
+    { id: 5, name: "Chelsey Dietrich", phone: "(254)954-1289" },
+  ];
+
   return (
     <div className="container">
       <div className="row">
@@ -24,7 +32,13 @@ const App = () => {
       </div>
       <div className="row">
         <div className="col-12">
-          <EditableTable />
+          <EditableTable
+            titleList={["id", "Имя", "Номер телефона"]}
+            rows={dummyData}
+            deleteCallback={() => {
+              console.log("done");
+            }}
+          />
         </div>
       </div>
       {/* <button
