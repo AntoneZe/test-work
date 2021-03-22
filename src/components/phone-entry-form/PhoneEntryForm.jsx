@@ -12,7 +12,8 @@ const MAX_NAME_LENGTH = 100;
 const useSubmit = (callback) => {
   const [nameError, setNameError] = useState('');
   const [phoneError, setPhoneError] = useState('');
-  const NAME_REG_EXP = /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/;
+  // const NAME_REG_EXP = /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/;
+  const NAME_REG_EXP = /^[a-zA-Zа-яёА-ЯЁ\s\-]+$/;
   const PHONE_REG_EXP = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
 
   const validateField = (
