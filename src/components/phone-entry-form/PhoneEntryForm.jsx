@@ -12,61 +12,55 @@ const MAX_NAME_LENGTH = 100;
 const useSubmit = (callback) => {
   const [nameError, setNameError] = useState('');
   const [phoneError, setPhoneError] = useState('');
+  const NAME_REG_EXP = /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/;
+  const PHONE_REG_EXP = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
 
-  const testName = (value, data) => {
+  const validateField = (
+    type,
+    value,
+    data,
+    regExp,
+    errorCallback,
+    errorMessage
+  ) => {
+    const setError = (message) => {
+      errorCallback(message);
+      return message;
+    };
+    const resetError = () => {
+      const emptyError = '';
+      errorCallback('');
+      return emptyError;
+    };
+
     if (value && value.length > 0) {
-      const regExp = /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/;
       if (regExp.test(value.trim())) {
         if (data.length && value.length > 0) {
-          const eqCheck = data.filter((el) => el.name.trim() === value.trim());
-          if (eqCheck.length) {
-            setNameError('Запись с указанными именем уже внесена в список');
-            return 'Запись с указанными именем уже внесена в список';
-          } else {
-            setNameError('');
-            return '';
-          }
+          const eqCheck = data.filter((el) => el[type] === value.trim());
+          return eqCheck.length ? setError(errorMessage[0]) : resetError();
         }
-        setNameError('');
-        return '';
+        return resetError();
       } else {
-        setNameError('Введите корректное имя');
-        return 'Введите корректное имя';
+        return setError(errorMessage[1]);
       }
     } else {
-      setNameError("Поле 'Имя' обязательно к заполнению");
-      return "Поле 'Имя' обязательно к заполнению";
-    }
-  };
-
-  const testPhone = (value, data) => {
-    if (value && value.length > 0) {
-      const regExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
-      if (regExp.test(value.trim())) {
-        if (data.length && value.length > 0) {
-          const eqCheck = data.filter((el) => el.phone === value.trim());
-          if (eqCheck.length) {
-            setPhoneError('Указанный номер телефона уже внесен в список');
-            return 'Указанный номер телефона уже внесен в список';
-          } else {
-            setPhoneError('');
-            return '';
-          }
-        }
-        setPhoneError('');
-        return '';
-      } else {
-        setPhoneError('Введите корректный номер телефона');
-        return 'Введите корректный номер телефона';
-      }
-    } else {
-      setPhoneError("Поле 'Номер телефона' обязательно к заполнению");
-      return "Поле 'Номер телефона' обязательно к заполнению";
+      return setError(errorMessage[2]);
     }
   };
 
   const validateHandler = (name, phone, data) => {
-    return [testName(name, data), testPhone(phone, data)];
+    return [
+      validateField('name', name, data, NAME_REG_EXP, setNameError, [
+        'Запись с указанными именем уже внесена в список',
+        'Введите корректное имя',
+        "Поле 'Имя' обязательно к заполнению",
+      ]),
+      validateField('phone', phone, data, PHONE_REG_EXP, setPhoneError, [
+        'Указанный номер телефона уже внесен в список',
+        'Введите корректный номер телефона',
+        "Поле 'Номер телефона' обязательно к заполнению",
+      ]),
+    ];
   };
 
   const submitHandler = (
