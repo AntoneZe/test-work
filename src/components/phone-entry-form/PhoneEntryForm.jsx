@@ -6,17 +6,85 @@ import Input from "../global/input/Input";
 
 import "./phone-entry-form.less";
 
-const useSubmit = () => {
-  const submitHandler = (name, phone) => {
-    console.log("name", name);
-    console.log("phone", phone);
-    console.log("submit");
+const useSubmit = (callback) => {
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+
+  const testName = (value, data) => {
+    if (value && value.length > 0) {
+      const regExp = /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/;
+      if (regExp.test(value.trim())) {
+        if (data.length && value.length > 0) {
+          const eqCheck = data.filter((el) => el.name === value);
+          console.log("eqCheck", eqCheck);
+          if (eqCheck.length) {
+            setNameError("Запись с указанными именем уже внесена в список");
+            return "Запись с указанными именем уже внесена в список";
+          } else {
+            setNameError("");
+            return "";
+          }
+        }
+        setNameError("");
+        return "";
+      } else {
+        setNameError("Введите корректное имя");
+        return "Введите корректное имя";
+      }
+    } else {
+      setNameError("Поле 'Имя' обязательно к заполнению");
+      return "Поле 'Имя' обязательно к заполнению";
+    }
   };
-  return [submitHandler];
+
+  const testPhone = (value, data) => {
+    if (value && value.length > 0) {
+      const regExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+      if (regExp.test(value.trim())) {
+        if (data.length && value.length > 0) {
+          const eqCheck = data.filter((el) => el.phone === value.trim());
+          if (eqCheck.length) {
+            setPhoneError("Указанный номер телефона уже внесен в список");
+            return "Указанный номер телефона уже внесен в список";
+          } else {
+            setPhoneError("");
+            return "";
+          }
+        }
+        setPhoneError("");
+        return "";
+      } else {
+        setPhoneError("Введите корректный номер телефона");
+        return "Введите корректный номер телефона";
+      }
+    } else {
+      setPhoneError("Поле 'Номер телефона' обязательно к заполнению");
+      return "Поле 'Номер телефона' обязательно к заполнению";
+    }
+  };
+
+  const validateHandler = (name, phone, data) => {
+    return [testName(name, data), testPhone(phone, data)];
+  };
+
+  const submitHandler = (name, phone, data, resetFieldsCallback) => {
+    const errorList = validateHandler(name, phone, data).reduce(
+      (acc, el) => (el.length ? [...acc, el] : acc),
+      []
+    );
+    if (errorList.length > 0) {
+      return;
+    }
+    callback(name, phone);
+    resetFieldsCallback[0]("");
+    resetFieldsCallback[1]("");
+  };
+
+  return [submitHandler, nameError, phoneError];
 };
 
-const PhoneEntryForm = ({ submit }) => {
-  const [submitHandler] = useSubmit();
+const PhoneEntryForm = ({ submit, data }) => {
+  const [submitHandler, nameError, phoneError] = useSubmit(submit);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -24,18 +92,30 @@ const PhoneEntryForm = ({ submit }) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        submitHandler(name, phone);
+        submitHandler(name, phone, data, [setName, setPhone]);
       }}
     >
       <fieldset className="custom-fieldset">
         <legend>Добавить запись</legend>
         <div className="custom-fieldset__wrapper">
           <label htmlFor="name">Имя</label>
-          <Input handler={setName} type={"text"} id={"name"} />
+          <Input
+            value={name}
+            handler={setName}
+            type={"text"}
+            id={"name"}
+            errorMessage={!!nameError ? nameError : null}
+          />
         </div>
         <div className="custom-fieldset__wrapper">
           <label htmlFor="phone">Номер телефона</label>
-          <Input handler={setPhone} type={"text"} id={"phone"} />
+          <Input
+            value={phone}
+            handler={setPhone}
+            type={"text"}
+            id={"phone"}
+            errorMessage={!!phoneError ? phoneError : null}
+          />
         </div>
         <div className="custom-fieldset__wrapper custom-fieldset__wrapper--button">
           <Button type={"submit"}>Добавить</Button>
@@ -47,6 +127,7 @@ const PhoneEntryForm = ({ submit }) => {
 
 PhoneEntryForm.propTypes = {
   submit: PropTypes.func.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default PhoneEntryForm;

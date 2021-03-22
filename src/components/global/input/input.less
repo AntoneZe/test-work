@@ -5,8 +5,25 @@
   font-size: @desktop-font-size-normal;
   border-radius: @base-border-radius;
   padding: 0 5px;
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    & span {
+      margin-top: 5px;
+      width: 100%;
+      font-size: @desktop-font-size-small;
+      font-weight: 600;
+      color: @error-color;
+    }
+  }
   &:focus {
     outline: none;
     border: 2px solid @base-color-focus;
+  }
+  &--error {
+    border: 2px solid @error-color;
+    &:focus {
+      border: 2px solid @error-color-focus;
+    }
   }
 }

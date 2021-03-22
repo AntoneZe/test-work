@@ -45,7 +45,7 @@ const EditableTable = ({ titleList, rows, deleteCallback, addCallback }) => {
         />
       </div>
       <Modal active={modalActive} setActive={setModalActive}>
-        <PhoneEntryForm submit={addCallback} />
+        <PhoneEntryForm submit={addCallback} data={rows} />
       </Modal>
     </>
   );
