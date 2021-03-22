@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Button from '../button/Button';
+import Button from "../button/Button";
 
-import './table.less';
+import "./table.less";
 
 const Table = () => {
   return (
-    <div className='custom-table__wrapper'>
-      <table className='custom-table'>
+    <div className="custom-table__wrapper">
+      <table className="custom-table">
         <thead>
           <tr>
             <th>id</th>

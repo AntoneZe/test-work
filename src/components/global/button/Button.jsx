@@ -1,8 +1,17 @@
-import React from 'react';
-import './button.less';
+import React from "react";
+import "./button.less";
 
-const Button = () => {
-  return <button className='custom-button'>Добавить</button>;
+const Button = ({ onClick }) => {
+  return (
+    <button
+      onClick={() => {
+        onClick();
+      }}
+      className="custom-button"
+    >
+      Добавить
+    </button>
+  );
 };
 
 export default Button;
