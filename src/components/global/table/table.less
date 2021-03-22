@@ -5,6 +5,11 @@
   @media only screen and (max-width: 767px) {
     min-width: 600px;
   }
+  &__dummy {
+    & td {
+      font-weight: 600;
+    }
+  }
   &__wrapper {
     width: 100%;
     border: 1px solid @base-color-light;
@@ -20,6 +25,7 @@
     border-bottom: 1px solid @base-color-light;
   }
   & tbody {
+    position: relative;
     & tr:nth-child(odd) {
       background-color: white;
     }

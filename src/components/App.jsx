@@ -34,9 +34,10 @@ const App = () => {
         <div className="col-12">
           <EditableTable
             titleList={["id", "Имя", "Номер телефона"]}
-            rows={dummyData}
-            deleteCallback={() => {
-              console.log("done");
+            rows={[]}
+            // rows={dummyData}
+            deleteCallback={(id) => {
+              console.log(id);
             }}
           />
         </div>

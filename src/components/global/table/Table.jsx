@@ -11,20 +11,32 @@ const Table = ({ titleList, rows, deleteCallback }) => {
   ));
   const rowsList = rows.map((el) => {
     return (
-      <>
-        <tr key={el.phone.toString}>
-          <td>{el.id}</td>
-          <td>{el.name}</td>
-          <td>{el.phone}</td>
-          <td>
-            <Button onClick={deleteCallback}>
-              <img src="public/img/delete.svg" alt="delete" />
-            </Button>
-          </td>
-        </tr>
-      </>
+      <tr key={el.phone}>
+        <td>{el.id}</td>
+        <td>{el.name}</td>
+        <td>{el.phone}</td>
+        <td>
+          <Button onClick={() => deleteCallback(el.id)}>
+            <img src="public/img/delete.svg" alt="delete" />
+          </Button>
+        </td>
+      </tr>
     );
   });
+
+  let tbody;
+
+  if (rows && rows.length > 0) {
+    tbody = <tbody>{rowsList}</tbody>;
+  } else {
+    tbody = (
+      <tbody className="custom-table__dummy">
+        <td colspan={4} align="center">
+          Нет записей...
+        </td>
+      </tbody>
+    );
+  }
 
   return (
     <div className="custom-table__wrapper">
@@ -35,7 +47,7 @@ const Table = ({ titleList, rows, deleteCallback }) => {
             <th></th>
           </tr>
         </thead>
-        <tbody>{rowsList}</tbody>
+        {tbody}
       </table>
     </div>
   );
