@@ -21,11 +21,11 @@
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
-    "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
+    "@babel/plugin-syntax-jsx": "^7.12.13",
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-flow": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
@@ -58,14 +58,16 @@
       "./node_modules/enzyme-to-json/serializer"
     ],
     "transform": {
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.(css|less)$": "<rootDir>/__mocks__/styleMocks.js"
     },
     "moduleDirectories": [
       "node_modules"
     ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./__mocks__/fileMock.js",
-      "\\.(css|scss)$": "identity-obj-proxy"
+      "\\.css$": "identity-obj-proxy",
+      ".*\\.less$": "<rootDir>/__mocks__/styleMocks.js"
     }
   }
 }

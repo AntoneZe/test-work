@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component should render Table component 1`] = `
+<div
+  class="custom-table__wrapper"
+>
+  <table
+    class="custom-table"
+  >
+    <thead>
+      <tr>
+        <th>
+          id
+        </th>
+        <th>
+          name
+        </th>
+        <th>
+          phone
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          test-1
+        </td>
+        <td>
+          11
+        </td>
+        <td>
+          <button
+            class="custom-button"
+          >
+            <img
+              alt="delete"
+              height="15"
+              src="public/img/delete.svg"
+              width="15"
+            />
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          test-2
+        </td>
+        <td>
+          22
+        </td>
+        <td>
+          <button
+            class="custom-button"
+          >
+            <img
+              alt="delete"
+              height="15"
+              src="public/img/delete.svg"
+              width="15"
+            />
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          test-3
+        </td>
+        <td>
+          33
+        </td>
+        <td>
+          <button
+            class="custom-button"
+          >
+            <img
+              alt="delete"
+              height="15"
+              src="public/img/delete.svg"
+              width="15"
+            />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Table with empty row list should render with tbody 'no-data' message 1`] = `
+<Table
+  rows={Array []}
+  titleList={
+    Array [
+      "test-1",
+      "test-2",
+      "test-3",
+    ]
+  }
+>
+  <div
+    className="custom-table__wrapper"
+  >
+    <table
+      className="custom-table"
+    >
+      <thead>
+        <tr>
+          <th
+            key="test-1"
+          >
+            test-1
+          </th>
+          <th
+            key="test-2"
+          >
+            test-2
+          </th>
+          <th
+            key="test-3"
+          >
+            test-3
+          </th>
+          <th />
+        </tr>
+      </thead>
+      <tbody
+        className="custom-table__dummy"
+      >
+        <tr>
+          <td
+            align="center"
+            colSpan={1}
+          />
+          <td
+            align="center"
+            colSpan={4}
+          >
+            Нет записей...
+          </td>
+          <td
+            align="center"
+            colSpan={1}
+          />
+          <td
+            align="center"
+            colSpan={1}
+          />
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Table>
+`;

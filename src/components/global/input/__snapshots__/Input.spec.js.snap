@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component should render Input component with props 1`] = `
+<div
+  className="custom-input__wrapper"
+>
+  <input
+    className="custom-input"
+    id="test-2"
+    onChange={[Function]}
+    type="text"
+  />
+</div>
+`;

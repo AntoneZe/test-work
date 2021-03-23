@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputSearch component should render InputSearch component 1`] = `
+<div
+  class="custom-input-search"
+>
+  <form>
+    <div>
+      <div
+        class="custom-input-search__form-wrapper"
+      >
+        <input
+          id="mySearch"
+          name="q"
+          placeholder="Введите Имя..."
+          type="search"
+          value=""
+        />
+      </div>
+      <button>
+        <img
+          alt="альтернативный текст"
+          src="public/img/icons-search.svg"
+        />
+      </button>
+    </div>
+  </form>
+</div>
+`;
