@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Modal component should render Modal component 1`] = `
+<div
+  class="custom-modal active"
+>
+  <div
+    class="custom-modal__content active"
+  >
+    <button
+      class="custom-modal__close-button active"
+    />
+  </div>
+</div>
+`;
