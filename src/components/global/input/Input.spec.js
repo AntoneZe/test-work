@@ -1,5 +1,5 @@
-import { shallow } from "enzyme";
 import React from "react";
+
 import Input from "./Input";
 
 const type = "text";
@@ -56,30 +56,3 @@ describe("component callback", () => {
     expect(mockCallBack).toBeCalledWith("test");
   });
 });
-
-// const props = {
-//   type: "text",
-//   id: "test-1",
-//   handler: () => "done",
-// };
-
-// describe("should render Input component with prop", () => {
-//   const setUp = (props) => shallow(<Input {...props} />);
-//   const component = setUp(props);
-//   it("should render Input", () => {
-//     const input = component.find("input");
-//     expect(input).toHaveLength(1);
-//   });
-// });
-
-// const props = {
-//   type: "text",
-//   id: "test-1",
-//   handler: () => "done",
-// };
-// describe("test callback", () => {
-//   it("shod return value", () => {
-//     const result = props.handler();
-//     expect(result).toBe("done");
-//   });
-// });

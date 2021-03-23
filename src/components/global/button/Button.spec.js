@@ -1,4 +1,5 @@
 import React from "react";
+
 import Button from "./Button";
 
 const setUp = (props) => shallow(<Button {...props} />);

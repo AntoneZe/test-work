@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhoneEntryForm component should render PhoneEntryForm component 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <fieldset
+    className="custom-fieldset"
+  >
+    <legend>
+      Добавить запись
+    </legend>
+    <div
+      className="custom-fieldset__wrapper"
+    >
+      <label
+        htmlFor="name"
+      >
+        Имя
+      </label>
+      <Input
+        errorMessage={null}
+        handler={[Function]}
+        id="name"
+        lengthRule={100}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="custom-fieldset__wrapper"
+    >
+      <label
+        htmlFor="phone"
+      >
+        Номер телефона
+      </label>
+      <Input
+        errorMessage={null}
+        handler={[Function]}
+        id="phone"
+        lengthRule={18}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="custom-fieldset__wrapper custom-fieldset__wrapper--button"
+    >
+      <Button
+        type="submit"
+      >
+        Добавить
+      </Button>
+    </div>
+  </fieldset>
+</form>
+`;
