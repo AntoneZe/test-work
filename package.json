@@ -13,7 +13,6 @@
   "author": "Zinchenko Anton",
   "license": "ISC",
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
     "bootstrap": "^4.6.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -29,6 +28,7 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-flow": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
+    "@babel/polyfill": "^7.12.1",
     "@types/jest": "^26.0.21",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
     "babel-jest": "^26.6.3",
